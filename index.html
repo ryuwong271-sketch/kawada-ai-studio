@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ken Ai Studio - Intelligent Image Processing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            screens: {
+              'mobile-landscape': {'raw': '(max-width: 1023px) and (orientation: landscape)'},
+            },
+            colors: {
+              background: 'rgb(var(--background) / <alpha-value>)',
+              surface: 'rgb(var(--surface) / <alpha-value>)',
+              surfaceHighlight: 'rgb(var(--surface-highlight) / <alpha-value>)',
+              primary: 'rgb(var(--primary) / <alpha-value>)',
+              primaryHover: 'rgb(var(--primary-hover) / <alpha-value>)',
+              secondary: '#f97316', // Orange
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Light Mode - Slate Scale */
+        --background: 255 255 255;
+        --surface: 241 245 249;         /* slate-100 */
+        --surface-highlight: 226 232 240; /* slate-200 */
+        --primary: 56 189 248;          /* sky-400 (#38BDF8) */
+        --primary-hover: 14 165 233;    /* sky-500 (#0EA5E9) */
+        --text-main: 15 23 42;          /* slate-900 */
+        --text-muted: 100 116 139;      /* slate-500 */
+      }
+
+      .dark {
+        /* Dark Mode - Deep Tech Navy Scale */
+        --background: 15 23 42;         /* slate-900 (#0F172A) */
+        --surface: 30 41 59;            /* slate-800 (#1E293B) */
+        --surface-highlight: 51 65 85;  /* slate-700 (#334155) */
+        --primary: 56 189 248;          /* sky-400 (#38BDF8) */
+        --primary-hover: 14 165 233;    /* sky-500 (#0EA5E9) */
+        --text-main: 248 250 252;       /* slate-50 (#F8FAFC) */
+        --text-muted: 148 163 184;      /* slate-400 (#94A3B8) */
+      }
+
+      body { 
+        font-family: 'Inter', sans-serif; 
+        background-color: rgb(var(--background)); 
+        color: rgb(var(--text-main));
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgb(var(--surface-highlight)); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgb(var(--text-muted)); }
+
+      /* Hide scrollbar for horizontal scrolling areas */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      
+      .dark .glass-panel {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
